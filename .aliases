@@ -1,0 +1,54 @@
+#########
+# Aliases
+#########
+
+# Composer
+alias ci='composer install -vvv'
+alias cu='composer update -vvv'
+
+# Docker
+alias dockerprune="docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs docker rm"
+alias dockerclean="docker ps -a | egrep 'weeks ago|days ago' | awk '{print $1}' | xargs docker rm"
+alias dockerpurge="docker ps -aq | xargs docker rm"
+alias dpsa="docker ps -a"
+
+# Git
+alias gitcano='git add . && git commit --amend --no-edit && git push -f fork'
+alias gitlpo='git log --pretty=oneline'
+alias gitlpog='gitlpo --graph'
+alias gs='git status'
+alias gwb='git branch | grep \* | sed -n -e "s/^\* //p"'
+alias gtfo='git branch -u origin'
+alias ufm='git checkout master && git push fork master'
+alias gnb='git checkout -b'
+
+# Homebrew
+alias brewup='brew update && brew upgrade --cleanup'
+
+# Navigation
+alias cdocs='cd $HOME/Documents/'
+alias cdev='cd $HOME/Development/'
+
+# NPM
+alias nr="npm run"
+alias ni="npm install --no-progress"
+
+# PHPBrew
+alias pb='phpbrew'
+
+# Pip
+alias pipup='pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
+
+# System
+alias cl='clear && l'
+alias vrc='vim ~/.zshrc'          # You don't want to link this and the next alias, Nick. Trust me.
+alias reload='source ~/.zshrc'    # What happens if you quickly save a bad mistake?
+
+# Tools
+alias job-dsl='java -jar /Users/nrebhun/Development/Tools/job-dsl-plugin-job-dsl-1.51/job-dsl-core/build/libs/job-dsl-core-1.51-standalone.jar'
+
+# Vagrant
+frequent_vms=()
+alias vs="print $frequent_vms | xargs vagrant status"
+alias vsh="vagrant ssh"
+alias HULK_SMASH='print $frequent_vms | xargs vagrant destroy'

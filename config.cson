@@ -1,0 +1,38 @@
+"*":
+  "activate-power-mode":
+    plugins:
+      playAudio: true
+      screenShake: true
+  core:
+    customFileTypes:
+      "source.groovy": [
+        "dsl"
+      ]
+    disabledPackages: [
+      "activate-power-mode"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "atom-dark-ui"
+      "monokai-seti"
+    ]
+  editor:
+    fontFamily: "Monaco"
+    fontSize: 12
+    showIndentGuide: true
+    showInvisibles: true
+    softWrapAtPreferredLineLength: true
+    tabLength: 4
+    tabType: "soft"
+  "exception-reporting":
+    userId: "d25ed8a5-aed5-44e2-ed51-70ef2992753a"
+  minimap:
+    disablePythonDocLinks: true
+    plugins:
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ensureSingleTrailingNewline: false
+

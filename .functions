@@ -1,0 +1,49 @@
+###########
+# Functions
+###########
+
+# Experimental
+function cr() {
+    typeset -A kind
+    kind=("f" "functional" "a" "acceptance" "u" "unit")
+    suffix=""
+
+    if [[ -n $3 ]]; then
+        suffix=":${3}"
+    fi
+
+    vendor/bin/codecept run ${kind[$1]} ./www/tests/codeception/tests/${kind[$1]}/${2}Cest.php${suffix} --config www/tests/codeception -vv
+}
+
+# DoItLive
+function dil() {
+    doitlive play $1 --shell /bin/zsh --prompt robbyrussell
+}
+
+# Git-related
+function gdh () {
+    git diff HEAD~$1
+}
+
+function grab () {
+    git fetch origin $1
+    git checkout FETCH_HEAD
+    git checkout -b $1
+}
+
+function graff() {
+    git remote add fork git@github.com:${1}
+}
+
+# Colorize Man Pages
+man() {
+    env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
+}
