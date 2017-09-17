@@ -1,5 +1,5 @@
-source $HOME/.env_vars
 source $HOME/.path
+source $HOME/.env_vars
 source $HOME/.aliases
 source $HOME/.functions
 
@@ -7,8 +7,7 @@ source $HOME/.functions
 plugins=(git zsh-syntax-highlighting)
 
 # Oh my ZSH
-ZSH_THEME="refined"
 source $ZSH/oh-my-zsh.sh
 
-# PHPBrew
-[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
+autoload -U promptinit; promptinit
+prompt pure

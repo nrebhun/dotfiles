@@ -29,6 +29,7 @@ function install_atom() {
 }
 
 function install_atom_packages() {
+  echo "Installing Atom packages..."
   apm install --packages-file $1
 }
 
@@ -58,6 +59,12 @@ function install_cask_packages() {
 
 function install_oh_my_zsh() {
   curl -L http://install.ohmyz.sh | sh
+
+  echo "Installing Pure theme..."
+  npm install --global pure-prompt
+
+  echo "Installing Zsh Syntax Highlighting..."
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
   if [[ $(system_profiler SPFontsDataType | grep Powerline) ]]; then
     already_installed "It appears 'Powerline fonts'"
@@ -93,13 +100,8 @@ function setup_configs() {
 }
 
 function install_packages() {
-  echo "Installing Atom packages..."
   install_atom_packages "$DOTFILES/atom-package-list"
-
-  echo "Installing Homebrew packages..."
   install_brew_packages
-
-  echo "Installing Cask packages..."
   install_cask_packages
 }
 
