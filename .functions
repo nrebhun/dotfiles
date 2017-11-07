@@ -26,8 +26,7 @@ function gdh () {
 }
 
 function grab () {
-    git fetch origin $1
-    git checkout FETCH_HEAD
+    git checkout origin $1
     git checkout -b $1
 }
 
@@ -40,7 +39,7 @@ function get() {
 }
 
 function getmy() {
-    git clone git@github.com:nrebhun/$1
+    git clone git@github.com:$(git config --global --get user.name)/$1
 }
 
 # Colorize Man Pages
