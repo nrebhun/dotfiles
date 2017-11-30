@@ -98,6 +98,13 @@ function setup_configs() {
   defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string $DOTFILES
   defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 }
+function setup_global_gitconfig() {
+    read -p "Please enter your GitHub username: " user_name
+    read -p "Please enter your GitHub email: " user_email
+
+    git config --global user.name "$user_name"
+    git config --global user.email "\"$user_email\""
+}
 
 function install_packages() {
   install_atom_packages "$DOTFILES/atom-package-list"
@@ -116,6 +123,7 @@ function check_and_conditionally_install() {
 
   install_packages
   setup_configs
+  setup_global_gitconfig
 
   if [ -d $HOME/.oh-my-zsh ]; then
     already_installed "Oh My Zsh"
