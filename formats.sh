@@ -1,0 +1,4 @@
+BOLD='\033[1m';
+ITALIC='\033[3m';
+UNDERLINE='\033[4m]';
+STRIKE='\033[9m';
