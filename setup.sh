@@ -7,7 +7,7 @@ echo "System and version identified: $OS ($VER)"
 
 case "$OS" in
     Linux*)     machine=Linux;;
-    Darwin*)    machine=Mac;;
+    Darwin*)    machine=macOS;;
     CYGWIN*)    machine=Cygwin;;
     MINGW*)     machine=MinGw;;
     *)          machine="UNKNOWN:${OS}"
