@@ -21,8 +21,8 @@ case "${machine}" in
     # Linux)      echo "$BEGIN_MSG";        # coming soon!
     #             echo "$SUCCESS_MSG";;
 
-    macOS)        printf "$BEGIN_MSG";
-                # ./macOS_setup.sh;
+    macOS)      printf "$BEGIN_MSG";
+                ./macOS_setup.sh;
                 printf "$SUCCESS_MSG";;
 
     *)          printf "${RED}${UNSUPPORTED_MSG}${CF}";;

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ALL_COMPONENTS=("aliases" "env_vars" "functions" )
+ALL_COMPONENTS=("aliases" "env_vars" "functions" "path" "vimrc" "zshrc")
 
 function update_component() {
     components=("$@")
@@ -21,4 +21,3 @@ else
     update_component "${COMPONENTS_TO_UPDATE[@]}"
     echo "Configuration updated! Please reload!"
 fi
-
