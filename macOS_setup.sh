@@ -4,7 +4,7 @@
 DEV_FOLDER="$HOME/Development"
 DOTFILES="$DEV_FOLDER/dotfiles"
 
-brew_packages=(cmake ninja git node python3 shellcheck vim wget zsh)
+brew_packages=(bat cmake docker ffmpeg git htop neofetch ninja node nmap python3 shellcheck thefuck vim wget zsh)
 cask_packages=(mactex qlcolorcode qlimagesize qlmarkdown qlstephen quicklook-csv quicklook-json)
 atom_url="https://github.com/atom/atom/releases/download/v1.20.0/atom-mac.zip"
 homebrew_url="https://raw.githubusercontent.com/Homebrew/install/master/install"
