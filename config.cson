@@ -13,8 +13,8 @@
     ]
     telemetryConsent: "no"
     themes: [
-      "atom-dark-ui"
-      "monokai-seti"
+      "one-dark-ui"
+      "one-dark-syntax"
     ]
   editor:
     fontFamily: "Monaco"

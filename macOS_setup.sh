@@ -93,7 +93,7 @@ function install_iterm() {
 
 function setup_configs() {
   echo "Copying dotfiles to $HOME..."
-  yes | cp -rf $DOTFILES/.[^.]* $HOME
+  yes | cp -rf $DOTFILES/.[^.][^git]* $HOME
 
   echo "Configuring iTerm..."
   defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string $DOTFILES
@@ -125,6 +125,7 @@ function check_and_conditionally_install() {
   install_packages
   setup_configs
   setup_global_gitconfig
+  configure_atom
 
   if [ -d $HOME/.oh-my-zsh ]; then
     already_installed "Oh My Zsh"
@@ -148,9 +149,13 @@ function check_and_conditionally_install() {
     chsh -s $(which zsh)
   fi
 
-  setup_configs
-
   echo "You should be all set! Get hacking!"
+}
+
+function configure_atom() {
+    echo "Configuring Atom preferences..."
+    cp ./config.cson ~/.atom/config.cson
+    echo "Finished configuring Atom preferences!"
 }
 
 check_and_conditionally_install
