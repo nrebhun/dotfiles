@@ -3,6 +3,7 @@
 
 DEV_FOLDER="$HOME/Development"
 DOTFILES="$DEV_FOLDER/dotfiles"
+WORKFLOWS="$DOTFILES/workflows"
 
 brew_packages=(bat cmake docker ffmpeg git htop neofetch ninja node nmap python3 shellcheck thefuck vim wget zsh)
 cask_packages=(mactex qlcolorcode qlimagesize qlmarkdown qlstephen quicklook-csv quicklook-json)
@@ -126,6 +127,7 @@ function check_and_conditionally_install() {
   setup_configs
   setup_global_gitconfig
   configure_atom
+  add_services_scripts
 
   if [ -d $HOME/.oh-my-zsh ]; then
     already_installed "Oh My Zsh"
@@ -152,10 +154,17 @@ function check_and_conditionally_install() {
   echo "You should be all set! Get hacking!"
 }
 
+# Note: Most likely *nix compatible. This may move
 function configure_atom() {
     echo "Configuring Atom preferences..."
-    cp ./config.cson ~/.atom/config.cson
+    cp $DOTFILES/config.cson ~/.atom/config.cson
     echo "Finished configuring Atom preferences!"
+}
+
+function add_services_scripts() {
+  echo "Copying automator scripts..."
+  cp -R $WORKFLOWS/*.workflow ~/Library/Services/
+  echo "Finished copying automator scripts!"
 }
 
 check_and_conditionally_install
