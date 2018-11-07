@@ -168,6 +168,9 @@ function add_automator_scripts() {
   echo "Configuring keyboard shortcuts for 'System Prefs > Keyboard > Shortcuts > Services'..."
   cp $DOTFILES/pbs.plist ~/Library/Preferences/
   echo "Finished configuring keyboard shortcuts!"
+  echo "Reloading Sysytem Preferences configuration."
+  killall cfprefsd && killall Finder
+  echo "Automated scripts are now mapped to keyboard shortcuts!"
 }
 
 check_and_conditionally_install
