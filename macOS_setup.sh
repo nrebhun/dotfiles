@@ -127,7 +127,7 @@ function check_and_conditionally_install() {
   setup_configs
   setup_global_gitconfig
   configure_atom
-  add_services_scripts
+  add_automator_scripts
 
   if [ -d $HOME/.oh-my-zsh ]; then
     already_installed "Oh My Zsh"
@@ -161,10 +161,13 @@ function configure_atom() {
     echo "Finished configuring Atom preferences!"
 }
 
-function add_services_scripts() {
+function add_automator_scripts() {
   echo "Copying automator scripts..."
   cp -R $WORKFLOWS/*.workflow ~/Library/Services/
   echo "Finished copying automator scripts!"
+  echo "Configuring keyboard shortcuts for 'System Prefs > Keyboard > Shortcuts > Services'..."
+  cp $WORKFLOWS/pbs.plist ~/Library/Preferences/
+  echo "Finished configuring keyboard shortcuts!"
 }
 
 check_and_conditionally_install
