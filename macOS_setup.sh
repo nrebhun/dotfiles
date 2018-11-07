@@ -166,7 +166,7 @@ function add_automator_scripts() {
   cp -R $WORKFLOWS/*.workflow ~/Library/Services/
   echo "Finished copying automator scripts!"
   echo "Configuring keyboard shortcuts for 'System Prefs > Keyboard > Shortcuts > Services'..."
-  cp $WORKFLOWS/pbs.plist ~/Library/Preferences/
+  cp $DOTFILES/pbs.plist ~/Library/Preferences/
   echo "Finished configuring keyboard shortcuts!"
 }
 
