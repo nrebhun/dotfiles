@@ -13,7 +13,7 @@ alias dockerpurge="docker ps -aq | xargs docker rm"
 alias dpsa="docker ps -a"
 
 # Git
-alias gitcano='git add . && git commit --amend --no-edit && git push -f fork'
+alias gitcano='git add . && git commit --amend --no-edit'
 alias gitlpo='git log --pretty=oneline'
 alias gitlpog='gitlpo --graph'
 alias gs='git status'
