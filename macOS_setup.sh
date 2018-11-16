@@ -33,6 +33,7 @@ function install_atom() {
 function install_atom_packages() {
   echo "Installing Atom packages..."
   apm install --packages-file $1
+  echo "Done"
 }
 
 function install_homebrew() {
