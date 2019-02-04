@@ -23,7 +23,7 @@ alias ufm='git checkout master && git push fork master'
 alias gnb='git checkout -b'
 
 # Homebrew
-alias brewup='brew update && brew upgrade --cleanup'
+alias brewup='brew update && brew upgrade'
 
 # Navigation
 alias cdocs='cd $HOME/Documents/'
