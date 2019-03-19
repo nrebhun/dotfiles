@@ -482,7 +482,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>622 588 620 392 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>384 510 928 394 0 0 1920 1200 </string>
+	<string>384 510 796 486 0 0 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>395 633 570 377 0 0 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -765,7 +765,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Recycle</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Description</key>
@@ -1267,7 +1267,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-02-15T21:37:01Z</date>
+	<date>2019-03-14T18:31:50Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
