@@ -18,8 +18,9 @@ SUCCESS_MSG=$"Huzzah! Your ${GREEN}${machine}${CF} machine should be all set! ðŸ
 UNSUPPORTED_MSG=$"Sorry, setup for ${BOLD}${machine}${CF}${RED} machines is not currently supported.";
 
 case "${machine}" in
-    # Linux)      echo "$BEGIN_MSG";        # coming soon!
-    #             echo "$SUCCESS_MSG";;
+    Linux)      echo "$BEGIN_MSG";        # coming soon!
+                ./linux_setup.sh;
+                echo "$SUCCESS_MSG";;
 
     macOS)      printf "$BEGIN_MSG";
                 ./macOS_setup.sh;

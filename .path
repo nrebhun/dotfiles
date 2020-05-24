@@ -8,4 +8,6 @@ PATH="$PATH:/usr/local/sbin"
 PATH="$PATH:/usr/local/go/bin"
 PATH="$PATH:$HOME/.cargo/bin"
 
+fpath+=$HOME/.zsh/pure
+
 export PATH
