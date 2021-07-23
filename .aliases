@@ -13,7 +13,7 @@ alias dockerpurge="docker ps -aq | xargs docker rm"
 alias dpsa="docker ps -a"
 
 # Git
-alias gitcano='git add . && git commit --amend --no-edit'
+alias gitcano='git commit --amend --no-edit'
 alias gitlpo='git log --pretty=oneline'
 alias gitlpog='gitlpo --graph'
 alias gs='git status'
@@ -21,6 +21,7 @@ alias gwb='git branch | grep \* | sed -n -e "s/^\* //p"'
 alias gtfo='git branch -u origin'
 alias ufm='git checkout master && git push fork master'
 alias gnb='git checkout -b'
+alias gpc='git push -u origin $(git branch --show-current)'
 
 # Homebrew
 alias brewup='brew update && brew upgrade'
@@ -38,15 +39,15 @@ alias pb='phpbrew'
 
 # Pip
 alias py='python3'
-alias pipup='pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
+alias pipup="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 
 # System
 alias cl='clear && l'
-alias vrc='vim ~/.zshrc'          # You don't want to link this and the next alias, Nick. Trust me.
-alias reload='source ~/.zshrc'    # What happens if you quickly save a bad mistake?
+alias vrc='vim ~/.zshrc'      # You don't want to link this and the next alias, Nick. Trust me.
+alias reload='exec zsh'       # What happens if you quickly save a bad mistake?
 
 # Tools
-alias job-dsl='java -jar /Users/nrebhun/Development/Tools/job-dsl-plugin-job-dsl-1.51/job-dsl-core/build/libs/job-dsl-core-1.51-standalone.jar'
+alias job-dsl='java -jar /Users/nrebhun/Development/Tools/job-dsl-core-1.70-standalone.jar'
 
 # Vagrant
 frequent_vms=()
