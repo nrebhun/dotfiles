@@ -5,9 +5,9 @@ DEV_FOLDER="$HOME/Development"
 DOTFILES="$DEV_FOLDER/dotfiles"
 WORKFLOWS="$DOTFILES/workflows"
 
-brew_packages=(bat cmake docker ffmpeg git htop neofetch ninja node nmap python3 shellcheck thefuck vim wget zsh)
+brew_packages=(bat cmake docker ffmpeg git htop neofetch ninja node nmap pure python3 shellcheck thefuck vim wget zsh)
 cask_packages=(mactex qlcolorcode qlimagesize qlmarkdown qlstephen quicklook-csv quicklook-json)
-atom_url="https://github.com/atom/atom/releases/download/v1.20.0/atom-mac.zip"
+atom_downloads_url="https://github.com/atom/atom/releases/download/"
 homebrew_url="https://raw.githubusercontent.com/Homebrew/install/master/install"
 omz_url="https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
 iterm_url="https://iterm2.com/downloads/stable/latest"
@@ -18,11 +18,20 @@ function install_pip() {
 
 function install_atom() {
   if ! [ -d /Applications/Atom.app ]; then
-    curl -OL $atom_url
+    echo "Discovering latest non-beta Atom tag..."
+    LATEST_ATOM_TAG=$(git ls-remote --tags --sort -version:refname git@github.com:atom/atom | grep -Ev ".*-beta.*" | head -1 | sed -E "s/.*tags\///g")
+    LATEST_ATOM_DOWNLOAD="${atom_downloads_url}/${LATEST_ATOM_TAG}/atom-mac.zip"
+
+    echo "Downloading Atom ${LATEST_ATOM_TAG} from '${LATEST_ATOM_DOWNLOAD}'..."
+    curl -OL $LATEST_ATOM_DOWNLOAD
+    
     echo "Unzipping Atom..."
     unzip -q atom-mac.zip
+
     echo "Moving Atom..."
     mv Atom.app/ /Applications/
+
+    echo "Cleaning up..."
     rm atom-mac.zip
   fi
 
@@ -62,9 +71,6 @@ function install_cask_packages() {
 
 function install_oh_my_zsh() {
   curl -L http://install.ohmyz.sh | sh
-
-  echo "Installing Pure theme..."
-  npm install --global pure-prompt
 
   echo "Installing Zsh Syntax Highlighting..."
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
