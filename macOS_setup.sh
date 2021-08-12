@@ -7,7 +7,7 @@ WORKFLOWS="$DOTFILES/workflows"
 
 brew_packages=(bat cmake docker ffmpeg git htop neofetch ninja node nmap pure python3 shellcheck thefuck vim wget zsh)
 cask_packages=(mactex qlcolorcode qlimagesize qlmarkdown qlstephen quicklook-csv quicklook-json)
-atom_downloads_url="https://github.com/atom/atom/releases/download/"
+atom_downloads_url="https://github.com/atom/atom/releases/download"
 homebrew_url="https://raw.githubusercontent.com/Homebrew/install/master/install"
 omz_url="https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
 iterm_url="https://iterm2.com/downloads/stable/latest"
@@ -61,10 +61,10 @@ function install_brew_packages() {
 
 function install_cask_packages() {
   echo "Installing Cask packages..."
-  brew tap caskroom/cask
+  brew tap "homebrew/cask"
   for item in "${cask_packages[@]}"; do
     echo "Cask-installing $item"
-    brew cask install $item
+    brew install $item
   done
   echo "Finished installing Cask packages!"
 }
