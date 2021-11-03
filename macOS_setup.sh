@@ -24,7 +24,7 @@ function install_atom() {
 
     echo "Downloading Atom ${LATEST_ATOM_TAG} from '${LATEST_ATOM_DOWNLOAD}'..."
     curl -OL $LATEST_ATOM_DOWNLOAD
-    
+
     echo "Unzipping Atom..."
     unzip -q atom-mac.zip
 
@@ -181,3 +181,4 @@ function add_automator_scripts() {
 }
 
 check_and_conditionally_install
+echo "Git example"
