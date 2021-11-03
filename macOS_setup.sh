@@ -24,7 +24,7 @@ function install_atom() {
 
     echo "Downloading Atom ${LATEST_ATOM_TAG} from '${LATEST_ATOM_DOWNLOAD}'..."
     curl -OL $LATEST_ATOM_DOWNLOAD
-    
+
     echo "Unzipping Atom..."
     unzip -q atom-mac.zip
 
@@ -46,7 +46,7 @@ function install_atom_packages() {
 }
 
 function install_homebrew() {
-  /usr/bin/ruby -e "$(curl -fsSL $homebrew_url)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew update && brew upgrade
 }
 
