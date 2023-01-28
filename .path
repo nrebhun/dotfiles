@@ -2,11 +2,13 @@
 # PATH Modifications
 ####################
 
-PATH="$HOME/.rvm/bin"
-PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin"
-PATH="$PATH:/usr/local/sbin"
-PATH="$PATH:/usr/local/go/bin"
-PATH="$PATH:$HOME/.cargo/bin"
+# Base PATH
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+PATH="$PATH:$HOME/.rvm/bin"         # RVM
+PATH="$PATH:/opt/homebrew/bin"      # brew
+PATH="$PATH:/Library/TeX/texbin"    # LaTeX
+PATH="$PATH:/usr/local/go/bin"      # Go
+PATH="$PATH:$HOME/.cargo/bin"       # Rust
 
 fpath+=$HOME/.zsh/pure
 

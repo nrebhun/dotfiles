@@ -13,7 +13,7 @@ case "$OS" in
     *)          machine="UNKNOWN:${OS}"
 esac
 
-BEGIN_MSG="Setting up your ${machine}...";
+BEGIN_MSG="Setting up your ${machine}...\n";
 SUCCESS_MSG=$"Huzzah! Your ${GREEN}${machine}${CF} machine should be all set! 🚀";
 UNSUPPORTED_MSG=$"Sorry, setup for ${BOLD}${machine}${CF}${RED} machines is not currently supported.";
 
