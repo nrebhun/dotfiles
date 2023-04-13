@@ -51,7 +51,7 @@ function install_oh_my_zsh() {
 
 function install_powerline_fonts() {
   echo "Cloning Powerline patched fonts:"
-  git clone git@github.com:powerline/fonts $DOTFILES_DIR
+  git clone git@github.com:powerline/fonts $DOTFILES_DIR/fonts
   echo "Installing..."
   $DOTFILES_DIR/fonts/install.sh
   echo "Installation complete. Performing cleanup:"
