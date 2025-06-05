@@ -25,11 +25,25 @@ function install_homebrew() {
 
 function install_brew_packages() {
   echo "Installing Homebrew packages..."
+  local failed_packages=()
   while read brew_package; do
-    echo "Brew-installing $brew_package"
-    brew install $brew_package
-  done <$DOTFILES_DIR/brew_manifest
-  echo "Finished installing Homebrew packages!"
+    if [ -n "$brew_package" ]; then  # Skip empty lines
+      printf "🍺 Brew-installing %s\n" "${brew_package}"
+      if ! brew install "$brew_package"; then
+        echo "❌ Failed to install $brew_package"
+        failed_packages+=("$brew_package")
+      else
+        echo "✅ Successfully installed $brew_package"
+      fi
+    fi
+  done <"$DOTFILES_DIR/brew_manifest"
+  
+  if [ ${#failed_packages[@]} -gt 0 ]; then
+    echo "⚠️  Failed to install the following packages:"
+    printf '   - %s\n' "${failed_packages[@]}"
+    echo "You may want to try installing them manually later."
+  fi
+  echo "🍻 Finished installing Homebrew packages!"
 }
 
 function install_cask_packages() {
@@ -43,7 +57,7 @@ function install_cask_packages() {
 }
 
 function install_oh_my_zsh() {
-  curl -L http://install.ohmyz.sh | sh
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   echo "Installing Zsh Syntax Highlighting..."
   git clone git@github.com:zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
   echo "Finished installing OMZ + Zsh Syntax Highlighting"
@@ -89,7 +103,7 @@ function install_packages() {
 }
 
 function already_installed() {
-  echo "$1 already installed."
+  echo "✅ $1 already installed."
 }
 
 # Manual installation, because brew-installation of pure appears to be broken on
@@ -185,3 +199,6 @@ if [ ! -d $MISC_BIN_LOC ]; then
 fi
 
 check_and_conditionally_install
+
+source $HOME/.zshrc
+reload

@@ -17,11 +17,13 @@ alias gitcano='git commit --amend --no-edit'
 alias gitlpo='git log --pretty=oneline'
 alias gitlpog='gitlpo --graph'
 alias gs='git status'
+alias ga='git add'
 alias gwb='git branch | grep \* | sed -n -e "s/^\* //p"'
 alias gtfo='git branch -u origin'
 alias ufm='git checkout master && git push fork master'
 alias gnb='git checkout -b'
 alias gpc='git push -u origin $(git branch --show-current)'
+alias gcmsg='git commit -m'
 
 # Homebrew
 alias brewup='brew update && brew upgrade'
