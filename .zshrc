@@ -4,10 +4,11 @@ source $HOME/.aliases
 source $HOME/.functions
 
 # Plugins
-plugins=(git zsh-autosuggestions zsh)
+plugins=(git macos zsh-autosuggestions zsh-syntax-highlighting )
+
+# Oh my ZSH
+source $ZSH/oh-my-zsh.sh
 
 autoload -U promptinit; promptinit
 prompt pure
 
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
